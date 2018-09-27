@@ -1,0 +1,60 @@
+﻿@model IEnumerable<KC_MGMT_ASPClient.Models.Employee>
+
+@{
+    ViewBag.Title = "Сотрудники";
+}
+
+<h2>Сотрудники</h2>
+
+    <table class="table table-hover focus" id="employee_table">
+        <tr>
+            <th><p>Имя сотрудника</p></th>
+            <th><p>Должность</p></th>
+            <th><p>Зарплата</p></th>
+            <th><p>Адрес</p></th>
+            <th><p>Телефон</p></th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.employee_name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.positionName.position)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.salary)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.phone)
+                </td>
+                <td>
+                    <a href="/Employees/Delete/@item.ID" class="btn btn-danger" role="button">Удалить</a>
+                    <a href="/Employees/Edit/@item.ID" class="btn btn-success" role="button">Редактировать</a>
+
+                </td>
+            </tr>
+        }
+    </table>
+
+<div>
+    <p>
+        <a href="/Employees/Create" class="btn btn-info" role="button">Добавить</a>
+        <a href="#" class="btn btn-info" role="button">Выплатить зп</a>
+    </p>
+</div>
+
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#employee_table').DataTable();
+        });
+    </script>
+    }

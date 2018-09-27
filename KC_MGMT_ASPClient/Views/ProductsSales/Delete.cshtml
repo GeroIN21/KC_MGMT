@@ -1,0 +1,49 @@
+﻿@model KC_MGMT_ASPClient.Models.ProductsSale
+
+@{
+    ViewBag.Title = "Удаление продажи";
+}
+
+<h2>Удаление продажи</h2>
+
+<h3>Вы действительно хотите удалить это?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>Продукт</dt>
+        <dd>
+            @Html.DisplayFor(model => model.FinishedProduct.product_name)
+        </dd>
+
+        <dt>Количество</dt>
+        <dd>
+            @Html.DisplayFor(model => model.quantity)
+        </dd>
+
+        <dt>Дата</dt>
+        <dd>
+            @Html.DisplayFor(model => model.date)
+        </dd>
+
+        <dt>Стоимость</dt>
+        <dd>
+            @Html.DisplayFor(model => model.prod_sum)
+        </dd>
+
+        <dt>Сотрудник</dt>
+        <dd>
+            @Html.DisplayFor(model => model.EmployeeName.employee_name)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+    <div class="form-actions">
+        <input type="submit" value="Удалить" class="btn btn-danger" /> |
+        <a href="/ProductsSales/Index" class="btn btn-info" role="button"><span>Отмена</span></a>
+    </div>
+    }
+</div>

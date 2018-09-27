@@ -1,0 +1,64 @@
+﻿@model KC_MGMT_ASPClient.Models.RawMatPurchase
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>RawMatPurchase</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.employeeName.employee_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.employeeName.employee_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.rawMaterialName.raw_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rawMaterialName.raw_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.quantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.quantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.date)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

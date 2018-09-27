@@ -1,0 +1,50 @@
+﻿@model KC_MGMT_ASPClient.Models.RawMaterial
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>RawMaterial</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.unitName.unit_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.unitName.unit_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.raw_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.raw_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.quantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.quantity)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

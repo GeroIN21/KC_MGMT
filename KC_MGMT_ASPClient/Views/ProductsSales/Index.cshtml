@@ -1,0 +1,50 @@
+﻿@model IEnumerable<KC_MGMT_ASPClient.Models.ProductsSale>
+
+@{
+    ViewBag.Title = "Продажа продукции";
+}
+
+<h2>Продажа продукции</h2>
+
+<table class="table table-hover focus">
+    <tr>
+        <th>Продукт</th>
+        <th>Кол-во</th>
+        <th>Дата</th>
+        <th>Стоимость</th>
+        <th>Сотрудник</th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FinishedProduct.product_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.prod_sum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmployeeName.employee_name)
+            </td>
+            <td>
+                <a href="/ProductsSales/Delete/@item.ID" class="btn btn-danger" role="button">Удалить</a>    
+                <a href="/ProductsSales/Edit/@item.ID" class="btn btn-success" role="button">Редактировать</a>            
+            </td>
+        </tr>
+    }
+
+</table>
+
+<div>
+    <a href="/ProductsSales/Create" class="btn btn-info" role="button"><span>Продать</span></a>
+</div>
+

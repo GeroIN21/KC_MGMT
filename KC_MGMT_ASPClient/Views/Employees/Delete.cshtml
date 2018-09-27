@@ -1,0 +1,50 @@
+﻿@model KC_MGMT_ASPClient.Models.Employee
+
+@{
+    ViewBag.Title = "Удаление сотрудника";
+}
+
+<h2>Удаление сотрудника</h2>
+
+<h3>Вы действительно хотите удалить " @Html.DisplayFor(model => model.employee_name)"?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>Имя</dt>
+        <dd>
+            @Html.DisplayFor(model => model.employee_name)
+        </dd>
+
+        <dt>Должность</dt>
+        <dd>
+            @Html.DisplayFor(model => model.positionName.position)
+        </dd>
+
+        <dt>Зарплата</dt>
+        <dd>
+            @Html.DisplayFor(model => model.salary)
+        </dd>
+
+        <dt>Адрес</dt>
+        <dd>
+            @Html.DisplayFor(model => model.address)
+        </dd>
+
+        <dt>Телефон</dt>
+        <dd>
+            @Html.DisplayFor(model => model.phone)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color">
+        <input type="submit" value="Удалить" class="btn btn-danger" /> |
+        <a href="/Employees/Index" class="btn btn-success" role="button">Отмена</a>
+    </div>
+    }
+</div>

@@ -1,0 +1,61 @@
+﻿@model IEnumerable<KC_MGMT_ASPClient.Models.FinishedProduct>
+
+@{
+    ViewBag.Title = "Готовая продукция";
+}
+
+<h2>Готовая продукция</h2>
+
+<table class="table table-hover focus">
+    <tr>
+        <th>
+            <p>ID</p>
+        </th>
+        <th>
+            <p>Наименование продукта</p>
+        </th>
+        <th>
+            <p>Стоимость</p>
+        </th>
+        <th>
+            <p>Количество</p>
+        </th>
+        <th>
+            <p>Ед</p>
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.product_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.quantity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Unit.unit_name)
+        </td>
+        <td>
+            <a href="/FinishedProducts/Delete/@item.ID" class="btn btn-danger" role="button">Удалить</a>
+            <a href="/FinishedProducts/Edit/@item.ID" class="btn btn-success" role="button">Редакт.</a>
+            <a href="/Ingredients/Index/@item.ID" class="btn btn-info" role="button">Состав</a>
+        </td>
+    </tr>
+}
+</table>
+
+<div>
+    <a href="/FinishedProducts/Create" class="btn btn-info" role="button"><span>Добавить</span></a>
+    <a href="/Manufactures/Create" class="btn anim_button btn-info" role="button"><span>Произвести</span></a>
+    <a href="/ProductsSales/Create" class="btn anim_button btn-info" role="button"><span>Продать</span></a>
+
+    @*<button class="button" style="vertical-align:middle"><span>Hover </span></button>*@
+</div>

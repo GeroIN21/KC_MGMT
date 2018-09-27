@@ -1,0 +1,57 @@
+﻿@model KC_MGMT_ASPClient.Models.FinishedProduct
+
+@{
+    ViewBag.Title = "Удаление продукта";
+}
+
+<h2>Удаление продукта</h2>
+
+<h3>Вы действительно хотите удалить " @Html.DisplayFor(model => model.product_name)"?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            <p>Наименование продукта</p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.product_name)
+        </dd>
+
+        <dt>
+            <p>Стоимость</p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sum)
+        </dd>
+
+        <dt>
+            <p>Количество</p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.quantity)
+        </dd>
+
+        <dt>
+            <p>Ед. измерения</p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.unitID)
+        </dd>
+    </dl>
+    <br>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+    <div class="form-actions">
+        <input type="submit" value="Удалить" class="btn btn-danger" role="button"/>
+        <a href="/FinishedProducts/Index" class="btn btn-info" role="button">Отмена</a>
+    </div>
+    }
+</div>

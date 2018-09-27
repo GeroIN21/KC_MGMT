@@ -1,0 +1,47 @@
+﻿@model KC_MGMT_ASPClient.Models.RawMaterial
+
+@{
+    ViewBag.Title = "Удаление сырья";
+}
+
+<h2>Удаление сырья</h2>
+
+<h3>Вы действиетльно хотите удалить " @Html.DisplayNameFor(model => model.unitName.unit_name)?"</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        
+        <dt>Сырье</dt>
+        <dd>
+            @Html.DisplayFor(model => model.raw_name)
+        </dd>
+
+        <dt>Стоимость</dt>
+        <dd>
+            @Html.DisplayFor(model => model.sum)
+        </dd>
+
+        <dt>Количество</dt>
+        <dd>
+            @Html.DisplayFor(model => model.quantity)
+        </dd>
+        <dt>
+            @*@Html.DisplayNameFor(model => model.unitName.unit_name)*@
+            Ед.
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.unitName.unit_name)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+    <div class="form-actions">
+        <input type="submit" value="Удалить" class="btn btn-danger" /> |
+        <a href="/RawMaterials/Index" class="btn anim_button btn-info" role="button">Отмена</a>
+    </div>
+    }
+</div>

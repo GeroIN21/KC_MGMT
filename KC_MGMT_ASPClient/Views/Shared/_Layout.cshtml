@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <title>@ViewBag.Title – приложение ASP.NET</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <header>
+        <div class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <div class="container">
+
+                    @Html.ActionLink("KCM Management", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                <div class="navbar-collapse collapse" id="navbarCollapse">
+                    <ul class="nav nav-masthead justify-content-center navbar-nav mr-auto">
+                        @*<li class="nav-item">@Html.ActionLink("Домашняя страница", "Index", "Home", new { @class = "nav-link" })</li>*@
+                        <li class="nav-item">@Html.ActionLink("Продукция", "Index", "FinishedProducts", new { area = "" }, new { @class = "nav-link" })</li>
+                        <li class="nav-item">@Html.ActionLink("Сырье", "Index", "RawMaterials", new { area = "" }, new { @class = "nav-link" })</li>
+                        <li class="nav-item">@Html.ActionLink("Сотрудники", "Index", "Employees", new { area = "" }, new { @class = "nav-link" })</li>
+                        <li class="nav-item">@Html.ActionLink("Производство", "Index", "Manufactures", new { area = "" }, new { @class = "nav-link" })</li>
+                        <li class="nav-item">@Html.ActionLink("Продажа", "Index", "ProductsSales", new { area = "" }, new { @class = "nav-link" })</li>
+                    </ul>                      
+                    @Html.Partial("_LoginPartial")
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year – приложение ASP.NET</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

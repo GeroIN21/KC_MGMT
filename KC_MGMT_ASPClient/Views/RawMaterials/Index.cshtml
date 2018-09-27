@@ -1,0 +1,51 @@
+﻿@model IEnumerable<KC_MGMT_ASPClient.Models.RawMaterial>
+
+@{
+    ViewBag.Title = "Сырье";
+}
+
+<h2>Сырье</h2>
+
+<table class="table table-hover focus">
+    <tr>
+        <th>
+            <p>Сырье</p>
+        </th>
+        <th>
+            <p>Стоимость</p>
+        </th>
+        <th>
+            <p>Количество</p>
+        </th>
+        <th>
+            <p>Ед.</p>
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.raw_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.unitName.unit_name)
+            </td>
+            <td>
+                <a href="/RawMaterials/Delete/@item.ID" class="btn btn-danger" role="button">Удалить</a>
+                <a href="/RawMaterials/Edit/@item.ID" class="btn btn-success" role="button">Редактировать</a>
+            </td>
+        </tr>
+    }
+</table>
+
+<p>
+    <a href="/RawMatPurchases/Create" class="btn btn-info" role="button">Закупить сырье</a>
+</p>
